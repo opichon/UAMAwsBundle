@@ -1,0 +1,23 @@
+{
+	"name": "uam/aws-bundle",
+	"description": "Symfony bundle to provide a wrapper service around AWS S3",
+	"keywords": ["aws", "s3", "cloud", "symfony", "bundle"],
+	"homepage": "http://gitweb.united-asian.com",
+	"type": "symfony-bundle",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Olivier Pichon",
+			"email": "op@united-asian.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3",
+		"symfony/framework-bundle": ">=2.1.0,<2.3-dev",
+		"aws/aws-sdk-php": "2.2.*@dev"
+	}
+	"autoload": {
+		"psr-0": { "UAM\\Bundle\\AwsBundle": "" }
+	},
+	"target-dir": "UAM/Bundle/AwsBundle"
+}
