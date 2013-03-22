@@ -22,16 +22,7 @@ class Configuration implements ConfigurationInterface
 
 		$rootNode
 			->children()
-				->arrayNode('credentials')
-					->isRequired()
-					->requiresAtLeastOneElement()
-					->useAttributeAsKey('name')
-					->prototype('array')
-						->children()
-							->scalarNode('access_key')->info('The AWS access key')->isRequired()->end()
-							->scalarNode('secret_key')->info('The AWS secret key')->isRequired()->end()
-						->end()
-					->end()
+				->scalarNode('aws_config_path')
 				->end()
 			->end();
 

@@ -1,4 +1,4 @@
-uam-aws-bundle
+UAMAwsBundle
 ==============
 
-Wrapper services around AWS services as a Symfony bundle
+The UAMAwsBundle exposes AWS clients as services for use in your Symfony 2 app.

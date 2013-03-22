@@ -1,0 +1,7 @@
+services:
+    uam_aws.s3:
+        class: Aws\S3\S3Client
+        factory_service: uam_aws.factory
+        factory_method: get
+        arguments:
+            - s3

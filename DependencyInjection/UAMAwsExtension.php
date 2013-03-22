@@ -14,15 +14,18 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class UAMAwsExtension extends Extension
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function load(array $configs, ContainerBuilder $container)
-    {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
+	/**
+	 * {@inheritDoc}
+	 */
+	public function load(array $configs, ContainerBuilder $container)
+	{
+		$configuration = new Configuration();
+		$config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
-    }
+		$container->setParameter('uam_aws.aws_config_path', $config['aws_config_path']);        
+
+		$loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
+		$loader->load('common.yml');
+		$loader->load('s3.yml');
+	}
 }
