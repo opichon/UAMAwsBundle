@@ -17,6 +17,17 @@ class S3ObjectBehavior extends Behavior{
 		'height_column' => 'height'
 	);
 
+	protected $objectBuilderModifier, $queryBuilderModifier, $peerBuilderModifier;
+
+	public function getObjectBuilderModifier()
+	{
+		if (is_null($this->objectBuilderModifier)) {
+			$this->objectBuilderModifier = new S3ObjectBehaviorObjectBuilderModifier($this);
+		}
+
+		return $this->objectBuilderModifier;
+	}
+
 	public function modifyTable()
 	{
 		$table = $this->getTable();
@@ -90,4 +101,12 @@ class S3ObjectBehavior extends Behavior{
 			}
 		}
 	}
-} 
+/*
+	public function objectFilter(&$script)
+	{
+		$pattern = '/use abstract class (\w+) extends (\w+) implements (\w+)/i';
+		$replace = 'abstract class ${1} extends ${2} implements ${3}, MyInterface';
+	$script = preg_replace($pattern, $replace, $script);
+	}
+*/
+}
