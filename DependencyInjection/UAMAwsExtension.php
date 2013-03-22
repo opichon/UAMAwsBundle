@@ -22,7 +22,12 @@ class UAMAwsExtension extends Extension
 		$configuration = new Configuration();
 		$config = $this->processConfiguration($configuration, $configs);
 
-		$container->setParameter('uam_aws.aws_config_path', $config['aws_config_path']);        
+		$container->setParameter(
+			'uam_aws.config', 
+			array_key_exists('config_path', $config)
+				? $config['config_path']
+				: $config['config']
+		);        
 
 		$loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
 		$loader->load('common.yml');

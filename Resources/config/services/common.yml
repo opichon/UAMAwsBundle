@@ -1,10 +1,7 @@
-parameters:
-    uam_aws.credentials: %uam_aws.aws_config_path%
-
 services:
     uam_aws.factory:
         class: Guzzle\Service\Builder\ServiceBuilder
         factory_class: Aws\Common\Aws
         factory_method: factory
         arguments:
-            - %uam_aws.credentials%
+            - %uam_aws.config%

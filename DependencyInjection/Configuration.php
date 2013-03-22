@@ -22,7 +22,13 @@ class Configuration implements ConfigurationInterface
 
 		$rootNode
 			->children()
-				->scalarNode('aws_config_path')
+				->scalarNode('config_path')->end()
+				->arrayNode('config')
+					->children()
+						->scalarNode('key')->end()
+						->scalarNode('secret')->end()
+						->scalarNode('region')->end()
+					->end()
 				->end()
 			->end();
 
