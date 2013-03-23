@@ -28,6 +28,7 @@ class Configuration implements ConfigurationInterface
 						->scalarNode('key')->end()
 						->scalarNode('secret')->end()
 						->scalarNode('region')->end()
+						->scalarNode('bucket')->end()
 					->end()
 				->end()
 			->end();

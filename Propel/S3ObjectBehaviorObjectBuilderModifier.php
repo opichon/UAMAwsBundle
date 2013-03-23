@@ -118,5 +118,4 @@ public function upload(S3Client \$s3, \$file)
 }
 ";
 	}
-
 }
