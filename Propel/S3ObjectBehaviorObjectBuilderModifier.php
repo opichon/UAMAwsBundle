@@ -72,19 +72,27 @@ public function getPresignedUrl(S3Client \$s3, \$expires = \"+5 minutes\")
 /**
  * Uploads a file to S3.
  *
- * @return 
+ * @param Aws\S3\S3Client an Aws S3Client
+ * @param string|stream|Guzzle\Http\EntityBody the path to the file to upload; accepts any valid argument for the \'Body\' parameter passed to the S3Client::putObject method.
+ * @param string the AWS S3 bucket to upload this file to. If unset, this instance's \'bucket\' property will be used.
+ *
+ * @return Guzzle\Service\Resource\Model reponse from S3Client request via Guzzle
  * @throws S3Exception if the request fails
  */
-public function upload(S3Client \$s3, \$file)
+public function upload(S3Client \$s3, \$file, \$bucket = null)
 {
-	if (!file_exists(\$file)) {
+	if (!\$file) {
 		return; 
 	}
 
+	if (\$region = \$this->getRegion()) {
+		\$s3->setRegion(\$region);
+	}
+
 	\$response = \$s3->putObject(array(
-		'Bucket' => \$this->getBucket(),
+		'Bucket' => \$bucket ? \$bucket : \$this->getBucket(),
 		'Key'    => \$this->getKey(),
-		'Body'   => fopen(\$file, 'r'),
+		'Body'   => \$file,
 		'ACL'    => CannedAcl::PRIVATE_ACCESS
 	));
 
