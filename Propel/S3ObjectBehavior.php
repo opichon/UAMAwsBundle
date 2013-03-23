@@ -11,14 +11,11 @@ class S3ObjectBehavior extends Behavior{
 		'bucket_column' => 'bucket',
 		'key_column' => 'key',
 		'original_filename_column' => 'original_filename',
-		'mime_type_column' => 'mime_type', 
-		'size_column' => 'size',
-		'with_dimensions' => true,
-		'width_column' => 'width',
-		'height_column' => 'height'
+		'default_region' => null,
+		'default_bucket' => null
 	);
 
-	protected $objectBuilderModifier, $queryBuilderModifier, $peerBuilderModifier;
+	protected $objectBuilderModifier;
 
 	public function getObjectBuilderModifier()
 	{
@@ -39,7 +36,8 @@ class S3ObjectBehavior extends Behavior{
 			$column = $this->getTable()->addColumn(array(
 				'name' => $columnName,
 				'type' => 'VARCHAR',
-				'size' => 20 
+				'size' => 20,
+				'default' => $this->getParameter('default_region')
 			));
 		}
 
@@ -49,7 +47,8 @@ class S3ObjectBehavior extends Behavior{
 			$column = $this->getTable()->addColumn(array(
 				'name' => $columnName,
 				'type' => 'VARCHAR',
-				'size' => 63 
+				'size' => 63,
+				'default' => $this->getParameter('default_bucket')
 			));
 		}
 
