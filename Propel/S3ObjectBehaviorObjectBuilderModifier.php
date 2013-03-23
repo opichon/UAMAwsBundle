@@ -97,11 +97,11 @@ public function upload(S3Client \$s3, \$file)
 	{
 		$script .= "
 /**
- *
+ * Convenience method to sanitize a file for use as a key in AWS S3.
  */
  public function sanitize(\$filename) {
 	\$s = trim(\$filename);
-	\$s = preg_replace('/^[.]*/', '', \$s); // removeleading periods
+	\$s = preg_replace('/^[.]*/', '', \$s); // remove leading periods
 	\$s = preg_replace('/[.]*\$/', '', \$s); // remove trailing periods
 	\$s = preg_replace('/\.[.]+/', '.', \$s); // remove any consecutive periods
 
