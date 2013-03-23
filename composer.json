@@ -14,8 +14,7 @@
 	"require": {
 		"php": ">=5.3.3",
 		"symfony/framework-bundle": ">=2.1.0,<2.3-dev",
-		"aws/aws-sdk-php": "2.2.*@dev",
-		"uam/propel-s3object-behavior": "dev-master"
+		"aws/aws-sdk-php": "2.2.*@dev"
 	},
 	"autoload": {
 		"psr-0": { "UAM\\Bundle\\AwsBundle": "" }
