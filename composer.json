@@ -19,5 +19,10 @@
 	"autoload": {
 		"psr-0": { "UAM\\Bundle\\AwsBundle": "" }
 	},
-	"target-dir": "UAM/Bundle/AwsBundle"
+	"target-dir": "UAM/Bundle/AwsBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
 }
