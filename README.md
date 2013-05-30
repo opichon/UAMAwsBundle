@@ -15,7 +15,7 @@ Add the package to your project's `composer.json`:
 }
 ```
 
-Register this bundle in your ap's kernel:
+Register this bundle in your app's kernel:
 
 ``` 
 # app/AppKernel.php
@@ -34,10 +34,10 @@ public function registerBundles()
 
 Configuration
 =============
-The UAMAwsBundle can be configured in 2 ways: either by poiinting to a AWS configuration file or by setting the configuration parameters in your `config.php` configuration file.
+The UAMAwsBundle can be configured in 2 ways: either by providing a path to a AWS configuration file or by setting the configuration parameters in your app's configuration.
 
 ### Direct configuration
-Define the following settings in your app's configuration file:
+Define the following settings in your app's configuration:
 
 ```
 # app/config/config.php
@@ -61,7 +61,7 @@ uam_aws:
 Usage
 =====
 
-Currently this bundle defines a single 's3' service that provides a client for AWS S3 service.
+Currently this bundle defines a single 's3' service that provides a client for the AWS S3 service.
 
 You can obtain this service from a container in the standard way, e.g. in a Controller:
 
@@ -71,6 +71,7 @@ You can obtain this service from a container in the standard way, e.g. in a Cont
 public function someAction()
 {
 	$s3 = $this->container->get('s3');
+	// ...
 }
 ```
 
