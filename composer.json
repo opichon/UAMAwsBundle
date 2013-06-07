@@ -13,7 +13,7 @@
 	],
 	"require": {
 		"php": ">=5.3.3",
-		"symfony/framework-bundle": ">=2.1.0,<2.3-dev",
+		"symfony/framework-bundle": ">=2.1.0,<=2.3-dev",
 		"aws/aws-sdk-php": "2.3.*@dev"
 	},
 	"autoload": {
@@ -22,7 +22,7 @@
 	"target-dir": "UAM/Bundle/AwsBundle",
     "extra": {
         "branch-alias": {
-            "dev-master": "0.2.x-dev"
+            "dev-master": "0.3.x-dev"
         }
     }
 }
