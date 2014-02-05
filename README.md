@@ -17,7 +17,7 @@ Add the package to your project's `composer.json`:
 
 Register this bundle in your app's kernel:
 
-``` 
+```
 # app/AppKernel.php
 
 public function registerBundles()
@@ -26,7 +26,7 @@ public function registerBundles()
 		// …
 		new UAM\Bundle\AwsBundle\UAMAwsBundle(),
 	);
-	
+
 	return bundles();
 }
 
@@ -53,7 +53,7 @@ uam_aws:
 You can also simply have your app's configuration file point to a AWS configuration file in a location of your choice. This configuration file must be in the format required by the AWS SDK's `Aws::factory()` method.
 
 ```
-# app/config/config.php 
+# app/config/config.php
 uam_aws:
 	config_path: /path/to/aws/config/file
 ```
@@ -61,7 +61,7 @@ uam_aws:
 Usage
 =====
 
-Currently this bundle defines a single 's3' service that provides a client for the AWS S3 service.
+Currently this bundle defines 2 services that provide clients for the AWS S3 and SQS services.
 
 You can obtain this service from a container in the standard way, e.g. in a Controller:
 
@@ -70,9 +70,14 @@ You can obtain this service from a container in the standard way, e.g. in a Cont
 
 public function someAction()
 {
-	$s3 = $this->container->get('s3');
+	$s3 = $this->container->get('uam_aws.s3');
+
+	$sqs = $this->container->get('uam_aws.sqs');
+
 	// ...
 }
 ```
 
-The 's3' service is an instance of `Aws\S3\S3Client`. See the AWS SDK documentation for usage of the S3Client.
+The `uam_aws.s3` service is an instance of `Aws\S3\S3Client`. See the AWS SDK documentation for usage of the S3Client.
+
+The `uam_aws.sqs` service is an instance of `Aws\Sqs\SqsClient`. See the AWS SDK documentation for usage of the SQsClient.
