@@ -1,7 +1,4 @@
 services:
     uam_aws.sqs:
-        class: Aws\Sqs\SqsClient
-        factory_service: uam_aws.factory
-        factory_method: get
-        arguments:
-            - sqs
+        class: Aws\Sdk\S3Client
+        factory: 'uam_aws.sdk.factory:createSqs'
