@@ -12,17 +12,16 @@
 		}
 	],
 	"require": {
-		"symfony/framework-bundle": "~2.0",
+		"symfony/framework-bundle": "^2.0||^3.0",
 		"aws/aws-sdk-php": "^3.36",
 		"guzzlehttp/guzzle": "^6.0"
 	},
 	"autoload": {
-		"psr-0": { "UAM\\Bundle\\AwsBundle": "" }
+		"psr-4": { "UAM\\Bundle\\AwsBundle\\": "src/" }
 	},
-	"target-dir": "UAM/Bundle/AwsBundle",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.4.*-dev"
-        }
-    }
+  "extra": {
+      "branch-alias": {
+          "dev-master": "0.5.*-dev"
+      }
+  }
 }
