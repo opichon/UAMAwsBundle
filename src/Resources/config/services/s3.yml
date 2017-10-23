@@ -1,4 +1,4 @@
 services:
     uam_aws.s3:
-        class: Aws\Sdk\S3Client
+        class: Aws\S3\S3Client
         factory: 'uam_aws.sdk.factory:createS3'
