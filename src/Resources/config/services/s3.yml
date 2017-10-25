@@ -1,4 +1,4 @@
 services:
     uam_aws.s3:
-        class: Aws\S3\S3Client
-        factory: 'uam_aws.sdk.factory:createS3'
+        class: Aws\S3\S3MultiRegionClient
+        factory: 'uam_aws.sdk.factory:createMultiRegionS3'
