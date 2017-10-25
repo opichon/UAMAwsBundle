@@ -1,4 +1,4 @@
 services:
     uam_aws.sqs:
-        class: Aws\Sdk\S3Client
+        class: Aws\Sqs\SqsClient
         factory: 'uam_aws.sdk.factory:createSqs'
