@@ -1,0 +1,5 @@
+services:
+    uam_aws.sdk.factory:
+        class: Aws\Sdk
+        arguments:
+            - %uam_aws.config%

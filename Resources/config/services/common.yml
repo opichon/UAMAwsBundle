@@ -1,7 +1,0 @@
-services:
-    uam_aws.factory:
-        class: Guzzle\Service\Builder\ServiceBuilder
-        factory_class: Aws\Common\Aws
-        factory_method: factory
-        arguments:
-            - %uam_aws.config%

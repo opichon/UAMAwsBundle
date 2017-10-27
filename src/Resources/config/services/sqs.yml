@@ -1,0 +1,4 @@
+services:
+    uam_aws.sqs:
+        class: Aws\Sqs\SqsClient
+        factory: 'uam_aws.sdk.factory:createSqs'
